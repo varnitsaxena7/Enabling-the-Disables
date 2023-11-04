@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Address" id="SearchBar">
+    <label for="destination">Type of Destination:</label>
+    <select id="DestinationType" name="destination">
+        <option value="" selected>-</option>
+        <option value="Amusement">Amusement</option>
+        <option value="School">School</option>
+        <option value="Hospital">Hospital</option>
+        <option value="Shops">Shops</option>
+    </select>
+    <button id="SearchBtn">Search</button>
+    <div id="SearchResults"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    let SearchBtn = document.getElementById("SearchBtn");
+    SearchBtn.addEventListener("click", async function (e) {
+        e.preventDefault();
+        document.getElementById("SearchResults").innerHTML="";
+        let DataBase = await axios.post("/search", {});
+        DataBase = DataBase.data;
+        for (Entity of DataBase) {
+            let cond1=Entity.Address.toLowerCase().includes(document.getElementById("SearchBar").value.toLowerCase());
+            let cond2=(Entity.DestinationType==document.getElementById("DestinationType").value);
+            if(!(cond1&&cond2)){
+                continue;
+            }
+            let data = document.createElement("div");
+            data.className += "alert alert-dark";
+            data.innerHTML = `
+                    <h7>Name: ${Entity.Name}</h7>
+                    <br>
+                    Address: ${Entity.Address}
+                    <br>
+                    <button "type="button" class="btn btn-primary" onclick={window.location.href="/info/${Entity.Email}"}>Know More</button>`;
+
+            document.getElementById("SearchResults").append(data);
+        }
+        if(document.getElementById("SearchResults").innerHTML==""){
+            document.getElementById("SearchResults").innerHTML="No Results Found!";
+        }
+    });
+</script>
+
+</html>

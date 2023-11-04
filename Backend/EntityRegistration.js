@@ -14,9 +14,61 @@ mongoose.connect(database_link).then(()=>{
     console.log("DataBase Connection failed!");
 });
 
-// const EntitySchema=mongoose.Schema({
-
-// });
+const EntitySchema=mongoose.Schema({
+    Address:{
+        type:String,
+        required:true
+    },
+    DestinationType:{
+        type:String,
+        required:true
+    },
+    Name:{
+        type:String,
+        required:true
+    },
+    Email:{
+        type:String,
+        unique:true,
+        required:true
+    },
+    PhoneNumber:{
+        type:String,
+        required:true
+    },
+    Ramps:{
+        type:String,
+        required:true
+    },
+    WheelChair:{
+        type:String,
+        required:true
+    },
+    Restrooms:{
+        type:String,
+        required:true
+    },
+    AutomaticDoors:{
+        type:String,
+        required:true
+    },
+    Lift:{
+        type:String,
+        required:true
+    },
+    Helper:{
+        type:String,
+        required:true
+    },
+    AnnoucementSystem:{
+        type:String,
+        required:true
+    },
+    AccessibleToilets:{
+        type:String,
+        required:true
+    }
+});
 
 // Registeration Setup
 
@@ -26,7 +78,7 @@ app.use("/register",EntityRegistrationRoute);
 
 EntityRegistrationRoute.route("/").get(sendRegistrationPage).post(RegisterEntity);
 
-const EntityDataBase=mongoose.model('entityDataBase',EntitySchema);
+const EntityDataBase=mongoose.model('EntityDataBase',EntitySchema);
 
 function sendRegistrationPage(req,res){
     res.sendFile(path.join(__dirname,"../Frontend/entityRegister.html"));
@@ -46,6 +98,8 @@ async function RegisterEntity(req,res){
         console.log("Registeration Failed!");
         res.status(500).json({message:"Failure"});
     }
+    
+    console.log(req.body);
 };
 
 async function createEntity(EntityDetails){

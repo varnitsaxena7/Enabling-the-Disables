@@ -22,4 +22,4 @@ async function sendSearchResult(res,res){
 };
 
 
-module.exports={SearchBarRoute};
+module.exports=SearchBarRoute;

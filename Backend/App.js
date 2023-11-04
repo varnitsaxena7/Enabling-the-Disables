@@ -11,7 +11,7 @@ const HomePageRoute=require("./HomePage");
 const SearchBarRoute=require("./SearchBar");
 const InformationRoute=require("./InfoPage");
 
-app.use("/").get((req,res)=>{
+app.get("/",(req,res)=>{
     res.redirect("/home");
 })
 app.use("/home",HomePageRoute);

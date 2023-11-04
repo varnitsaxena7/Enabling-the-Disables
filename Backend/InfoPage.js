@@ -13,10 +13,10 @@ app.use("/info/:id",InfoPageRoute);
 InfoPageRoute.route("/").get(sendInfoPage).post(sendInfoResult);
 
 function sendInfoPage(req,res){
-    res.sendFile(path.join(__dirname,"../Frontend/searchPage.html"));
+    res.sendFile(path.join(__dirname,"../Frontend/infoPage.html"));
 };
 async function sendInfoResult(req,res){
     let DataBase=await EntityDataBase.find();
     res.send(DataBase);
 }
-module.exports={InfoPageRoute};
+module.exports=InfoPageRoute;
