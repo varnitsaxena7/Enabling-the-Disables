@@ -5,21 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 
 <body>
-    <input type="text" placeholder="Address" id="SearchBar">
-    <label for="destination">Type of Destination:</label>
-    <select id="DestinationType" name="destination">
-        <option value="" selected>-</option>
-        <option value="Amusement">Amusement</option>
-        <option value="School">School</option>
-        <option value="Hospital">Hospital</option>
-        <option value="Shops">Shops</option>
-    </select>
-    <button id="SearchBtn">Search</button>
-    <div id="SearchResults"></div>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/home">imPowered</a>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="SearchBar" placeholder="Enter city">
+                    <div class="input-group-append">
+                        <select class="form-control" id="DestinationType">
+                            <option value="">-</option>
+                            <option value="Amusement">Amusement</option>
+                            <option value="School">School</option>
+                            <option value="Hospital">Hospital</option>
+                            <option value="Shop">Shop</option>
+                        </select>
+                    </div>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" id="SearchBtn">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="SearchResults" class="alert"> 
+
+        </div>
+    </div>
+
+    
 </body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
     let SearchBtn = document.getElementById("SearchBtn");
