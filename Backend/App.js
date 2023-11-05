@@ -16,4 +16,4 @@ app.get("/",(req,res)=>{
 app.use("/home",HomePageRoute);
 app.use("/register",EntityRegistrationRoute);
 app.use("/search",SearchBarRoute);
-app.use("/info?",InformationRoute);
+app.use("/info",InformationRoute);
