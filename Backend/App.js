@@ -5,7 +5,6 @@ app.listen(3000);
 app.use(express.json());
 app.use(express.static(path.join(__dirname,"../public")));
 
-
 const {EntityRegistrationRoute}=require("./EntityRegistration");
 const HomePageRoute=require("./HomePage");
 const SearchBarRoute=require("./SearchBar");

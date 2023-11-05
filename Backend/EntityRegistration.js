@@ -44,7 +44,7 @@ const EntitySchema=mongoose.Schema({
         type:String,
         required:true
     },
-    Restrooms:{
+    RestRooms:{
         type:String,
         required:true
     },
@@ -56,15 +56,19 @@ const EntitySchema=mongoose.Schema({
         type:String,
         required:true
     },
-    Helper:{
+    Helpers:{
         type:String,
         required:true
     },
-    AnnoucementSystem:{
+    AnnouncementSystem:{
         type:String,
         required:true
     },
     AccessibleToilets:{
+        type:String,
+        required:true
+    },
+    About:{
         type:String,
         required:true
     }
